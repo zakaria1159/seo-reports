@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Audit Fix & Growth Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-header {
+            margin-bottom: 40px;
+        }
+        
+        .slide-number {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+        }
+        
+        .slide-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .critical {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .high {
+            background: #ff8800;
+            color: white;
+        }
+        
+        .medium {
+            background: #ffbb33;
+            color: white;
+        }
+        
+        .low {
+            background: #00C851;
+            color: white;
+        }
+        
+        .growth {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .issue-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .issue-box h3 {
+            color: #1a1a1a;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        
+        .fix-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .fix-section strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .fix-section p {
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .timeline-number {
+            min-width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-top: 8px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+        
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .progress-dots {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            transition: all 0.3s;
+        }
+        
+        .dot.active {
+            background: #667eea;
+            width: 30px;
+            border-radius: 5px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .impact-high { color: #ff4444; font-weight: 600; }
+        .impact-medium { color: #ff8800; font-weight: 600; }
+        .impact-low { color: #00C851; font-weight: 600; }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box strong {
+            color: #856404;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        <!-- Slide 1: Cover -->
+        <div class="slide active">
+            <div class="slide-header">
+                <div class="slide-number">PARACHUTE SEO AUDIT</div>
+                <h1>Technical SEO Fix Plan<br>& Growth Strategy</h1>
+                <p class="subtitle">Screaming Frog Audit Results & Visitor Growth Plan</p>
+            </div>
+            <div class="slide-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">Internal Pages</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">38</div>
+                        <div class="stat-label">Indexable Pages</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">29</div>
+                        <div class="stat-label">Issues Found</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Growth Opportunities</div>
+                    </div>
+                </div>
+                
+                <div class="info-box" style="margin-top: 40px;">
+                    <strong>⚠️ Important Note:</strong>
+                    <p style="margin-top: 8px; color: #444;">Blog pages were NOT crawled by Screaming Frog. This means your content marketing efforts aren't reflected in this audit. We need to investigate why (robots.txt blocking, separate subdomain, or crawl settings).</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()" disabled>Previous</button>
+                <div class="progress-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Critical Issues -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 1: CRITICAL FIXES</div>
+                <h2>🔴 Fix These First</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge critical">CRITICAL</span>
+                    <h3>1. Hreflang Inconsistencies</h3>
+                    <div class="metric">
+                        <span class="metric-label">Affected Pages:</span>
+                        <span class="metric-value">12 pages (32%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Problem:</strong>
+                        <p>French pages are tagged as English and vice versa. This breaks your bilingual SEO and shows wrong language to users.</p>
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Audit every hreflang tag in your HTML</li>
+                            <li>Ensure French pages have hreflang="fr" and English pages have hreflang="en"</li>
+                            <li>Add x-default to point to your primary language</li>
+                        </ul>
+                        <strong>Impact:</strong>
+                        <p class="impact-high">CRITICAL - This is killing your international SEO</p>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <span class="priority-badge critical">CRITICAL</span>
+                    <h3>2. Internal 404 Errors</h3>
+                    <div class="metric">
+                        <span class="metric-label">Broken Links:</span>
+                        <span class="metric-value">4 internal URLs</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Problem:</strong>
+                        <p>Dead links on your website. Bad user experience and wastes crawl budget.</p>
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Find pages linking to these 404s in Screaming Frog's inlinks tab</li>
+                            <li>Either fix the links or create 301 redirects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Keyword Strategy Problem -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 1: CRITICAL FIXES</div>
+                <h2>🎯 Missing Keyword Strategy</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge critical">CRITICAL</span>
+                    <h3>3. No Keyword Research = Duplicate Content</h3>
+                    <div class="metric">
+                        <span class="metric-label">Duplicate H1s:</span>
+                        <span class="metric-value">14 pages (33%)</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Duplicate H2s:</span>
+                        <span class="metric-value">14 pages (33%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Root Problem:</strong>
+                        <p>You don't have a keyword map. Each page needs to target DIFFERENT keywords, but without research, you're using the same headings across multiple pages.</p>
+                        <strong>What's Happening:</strong>
+                        <ul>
+                            <li>Multiple pages fighting for the same keywords</li>
+                            <li>Google doesn't know which page to rank for what</li>
+                            <li>Your pages cannibalize each other's rankings</li>
+                        </ul>
+                        <strong>The Fix - Keyword Research Process:</strong>
+                        <ul>
+                            <li><strong>Step 1:</strong> Use Ahrefs, SEMrush, or Google Keyword Planner</li>
+                            <li><strong>Step 2:</strong> Find 1 primary keyword per page (300+ monthly searches)</li>
+                            <li><strong>Step 3:</strong> Find 2-3 secondary keywords per page</li>
+                            <li><strong>Step 4:</strong> Create unique H1 with primary keyword</li>
+                            <li><strong>Step 5:</strong> Create unique H2s with secondary keywords</li>
+                        </ul>
+                        <strong>Impact:</strong>
+                        <p class="impact-high">CRITICAL - Without unique keywords per page, you can't grow traffic</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 4: Page Optimization Issues -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 2: OPTIMIZATION</div>
+                <h2>📄 Page Optimization Issues</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge high">HIGH</span>
+                    <h3>4. Page Titles Too Long</h3>
+                    <div class="metric">
+                        <span class="metric-label">Affected Pages:</span>
+                        <span class="metric-value">26 pages (62%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Problem:</strong>
+                        <p>Titles over 60 characters get cut off in Google. Users can't see your full message.</p>
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Keep titles under 60 characters</li>
+                            <li>Put primary keyword at the beginning</li>
+                            <li>Make them compelling to increase clicks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <span class="priority-badge high">HIGH</span>
+                    <h3>5. Meta Descriptions Too Long</h3>
+                    <div class="metric">
+                        <span class="metric-label">Affected Pages:</span>
+                        <span class="metric-value">36 pages (86%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Fix:</strong>
+                        <p>Keep under 155 characters. Include a call-to-action to increase clicks.</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Note on Meta Keywords:</strong>
+                    <p style="margin-top: 8px; color: #444;">If you're using meta keywords tags, remove them. Google hasn't used them since 2009. They're useless and waste crawl budget.</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Content Issues -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 2: OPTIMIZATION</div>
+                <h2>📝 Content Issues</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge high">HIGH</span>
+                    <h3>6. Thin Content Pages</h3>
+                    <div class="metric">
+                        <span class="metric-label">Affected Pages:</span>
+                        <span class="metric-value">24 pages (57%) under 200 words</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Problem:</strong>
+                        <p>Google needs content to understand what your page is about and rank it.</p>
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Add 400-800 words to key service pages</li>
+                            <li>Include: Service descriptions, benefits, process, FAQs</li>
+                            <li>Use your researched keywords naturally (2-3% density)</li>
+                            <li>Add customer testimonials and case studies</li>
+                        </ul>
+                        <strong>Impact:</strong>
+                        <p class="impact-high">HIGH - More quality content = better rankings</p>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <span class="priority-badge medium">MEDIUM</span>
+                    <h3>7. Internal Nofollow Links</h3>
+                    <div class="metric">
+                        <span class="metric-label">Affected Pages:</span>
+                        <span class="metric-value">37 pages (88%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Fix:</strong>
+                        <p>Remove rel="nofollow" from internal links. You're blocking PageRank flow through your site.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 6: Technical Polish -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 2: OPTIMIZATION</div>
+                <h2>⚡ Performance & Accessibility</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge medium">MEDIUM</span>
+                    <h3>8. Large Images</h3>
+                    <div class="metric">
+                        <span class="metric-label">Images over 100KB:</span>
+                        <span class="metric-value">15 images (9%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Compress with TinyPNG or ImageOptim</li>
+                            <li>Convert to WebP format</li>
+                            <li>Lazy load below-the-fold images</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <span class="priority-badge low">LOW (SEO) / HIGH (Legal)</span>
+                    <h3>9. Missing Alt Text</h3>
+                    <div class="metric">
+                        <span class="metric-label">Images without alt text:</span>
+                        <span class="metric-value">100 images (60%)</span>
+                    </div>
+                    <div class="fix-section">
+                        <strong>The Fix:</strong>
+                        <ul>
+                            <li>Add descriptive alt text (10-15 words)</li>
+                            <li>Include keywords naturally</li>
+                            <li>Use alt="" for decorative images</li>
+                        </ul>
+                        <strong>Impact:</strong>
+                        <p class="impact-medium">Accessibility compliance + image SEO</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>Note on External Links:</strong>
+                    <p style="margin-top: 8px; color: #444;">205 external URLs found (83% of crawl) - these are CDN-hosted images, which is normal. Check the 6 external 404s, but if images load, it's fine.</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 7: Growth Strategy - Blog -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 3: GROWTH STRATEGY</div>
+                <h2>📈 How to Increase Visitors</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge growth">GROWTH OPPORTUNITY #1</span>
+                    <h3>Fix & Optimize Your Blog</h3>
+                    <div class="fix-section">
+                        <strong>Current Problem:</strong>
+                        <p>Your blog wasn't crawled by Screaming Frog. This could mean:</p>
+                        <ul>
+                            <li>It's on a separate subdomain (blog.parachute.com vs parachute.com/blog)</li>
+                            <li>It's blocked by robots.txt</li>
+                            <li>Poor internal linking from main site</li>
+                        </ul>
+                        <strong>Why This Matters:</strong>
+                        <p style="margin-top: 10px;">Blogs are your #1 tool for organic traffic growth. Without proper crawling and indexing, Google can't rank your content.</p>
+                        <strong>Action Steps:</strong>
+                        <ul>
+                            <li><strong>Investigate:</strong> Why wasn't the blog crawled?</li>
+                            <li><strong>Fix:</strong> Move blog to main domain (parachute.com/blog)</li>
+                            <li><strong>Link:</strong> Add prominent blog links in main navigation</li>
+                            <li><strong>Optimize:</strong> Apply same keyword research to blog posts</li>
+                            <li><strong>Publish:</strong> 2-4 high-quality posts per month targeting long-tail keywords</li>
+                        </ul>
+                        <strong>Expected Impact:</strong>
+                        <p class="impact-high">Can generate 50-70% of your organic traffic within 6-12 months</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 8: Growth Strategy - Content -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 3: GROWTH STRATEGY</div>
+                <h2>📈 Content Marketing Plan</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge growth">GROWTH OPPORTUNITY #2</span>
+                    <h3>Create Content That Ranks</h3>
+                    <div class="fix-section">
+                        <strong>Content Types to Create:</strong>
+                        <ul>
+                            <li><strong>Service Pages:</strong> One page per specific service (not just one "Services" page)</li>
+                            <li><strong>Location Pages:</strong> City/region-specific landing pages</li>
+                            <li><strong>Comparison Pages:</strong> "X vs Y" articles for competitive keywords</li>
+                            <li><strong>How-To Guides:</strong> Educational content your customers search for</li>
+                            <li><strong>Case Studies:</strong> Real examples build trust + rank for long-tail queries</li>
+                        </ul>
+                        <strong>Content Formula:</strong>
+                        <ul>
+                            <li>Target keyword in H1, first paragraph, and 1-2 H2s</li>
+                            <li>800-1500 words minimum</li>
+                            <li>Include images with alt text</li>
+                            <li>Add internal links to related pages</li>
+                            <li>Include FAQ schema markup</li>
+                        </ul>
+                        <strong>Publishing Schedule:</strong>
+                        <ul>
+                            <li><strong>Month 1-2:</strong> Expand existing pages (fix thin content)</li>
+                            <li><strong>Month 3+:</strong> Add 2-4 new pages/posts per month</li>
+                            <li><strong>Ongoing:</strong> Update and refresh old content quarterly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 9: Growth Strategy - Technical -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">PART 3: GROWTH STRATEGY</div>
+                <h2>🔧 Technical SEO for Growth</h2>
+            </div>
+            <div class="slide-content">
+                <div class="issue-box">
+                    <span class="priority-badge growth">GROWTH OPPORTUNITY #3</span>
+                    <h3>Build a Strong Technical Foundation</h3>
+                    <div class="fix-section">
+                        <strong>1. Fix Your Site Architecture:</strong>
+                        <ul>
+                            <li>Create clear category hierarchies (3 clicks max from homepage)</li>
+                            <li>Build topic clusters with pillar pages + supporting content</li>
+                            <li>Add breadcrumb navigation with schema markup</li>
+                            <li>Create an HTML sitemap for users</li>
+                        </ul>
+                        <strong>2. Improve Internal Linking:</strong>
+                        <ul>
+                            <li>Link from high-authority pages to new content</li>
+                            <li>Use descriptive anchor text (not "click here")</li>
+                            <li>Add "Related Articles" sections</li>
+                            <li>Link from old content to new content</li>
+                        </ul>
+                        <strong>3. Schema Markup:</strong>
+                        <ul>
+                            <li>Add Organization schema to homepage</li>
+                            <li>Add LocalBusiness schema if you serve specific areas</li>
+                            <li>Add FAQ schema to pages with questions</li>
+                            <li>Add BreadcrumbList schema for navigation</li>
+                        </ul>
+                        <strong>4. Speed Optimization:</strong>
+                        <ul>
+                            <li>Aim for Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1</li>
+                            <li>Enable browser caching</li>
+                            <li>Minify CSS/JS files</li>
+                            <li>Use a CDN (you already are for images!)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 10: Implementation Timeline -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">IMPLEMENTATION PLAN</div>
+                <h2>📅 6-Month Roadmap</h2>
+            </div>
+            <div class="slide-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-number">1</div>
+                        <div class="timeline-content">
+                            <h3>Month 1: Critical Fixes</h3>
+                            <p><strong>Week 1-2:</strong> Fix hreflang, internal 404s, remove nofollow links<br>
+                            <strong>Week 3-4:</strong> Conduct keyword research for all existing pages</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">2</div>
+                        <div class="timeline-content">
+                            <h3>Month 2: Page Optimization</h3>
+                            <p><strong>Week 1-2:</strong> Rewrite all H1s and H2s with unique keywords<br>
+                            <strong>Week 3-4:</strong> Optimize page titles and meta descriptions</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">3</div>
+                        <div class="timeline-content">
+                            <h3>Month 3: Content Expansion</h3>
+                            <p><strong>Week 1-2:</strong> Expand thin content pages to 400-800 words<br>
+                            <strong>Week 3-4:</strong> Investigate and fix blog crawling issue</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">4</div>
+                        <div class="timeline-content">
+                            <h3>Month 4: Technical Polish</h3>
+                            <p><strong>Week 1-2:</strong> Add alt text, compress images, add size attributes<br>
+                            <strong>Week 3-4:</strong> Implement schema markup, improve site architecture</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">5</div>
+                        <div class="timeline-content">
+                            <h3>Month 5-6: Content Growth</h3>
+                            <p><strong>Ongoing:</strong> Publish 2-4 optimized blog posts per month<br>
+                            <strong>Ongoing:</strong> Add new service/location pages based on keyword research</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">∞</div>
+                        <div class="timeline-content">
+                            <h3>Ongoing: Monitor & Scale</h3>
+                            <p>Track rankings in Google Search Console, analyze what's working, double down on successful content, update old posts, build more topical authority</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="btn-secondary" onclick="prevSlide()">Previous</button>
+                <div class="progress-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot active"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()" disabled>Finish</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[n].classList.add('active');
+            dots[n].classList.add('active');
+            
+            const prevBtn = slides[n].querySelector('.btn-secondary');
+            const nextBtn = slides[n].querySelector('.btn-primary');
+            
+            if (n === 0) {
+                prevBtn.disabled = true;
+            } else {
+                prevBtn.disabled = false;
+            }
+            
+            if (n === slides.length - 1) {
+                nextBtn.disabled = true;
+                nextBtn.textContent = 'Finish';
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.textContent = 'Next';
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+        
+        showSlide(0);
+    </script>
+</body>
+</html>
